@@ -69,10 +69,10 @@ class TwitterMixin(OAuthMixin):
     the user; it is required to make requests on behalf of the user later
     with twitter_request().
     """
-    _OAUTH_REQUEST_TOKEN_URL = 'http://api.twitter.com/oauth/request_token'
-    _OAUTH_ACCESS_TOKEN_URL = 'http://api.twitter.com/oauth/access_token'
-    _OAUTH_AUTHORIZE_URL = 'http://api.twitter.com/oauth/authorize'
-    _OAUTH_AUTHENTICATE_URL = 'http://api.twitter.com/oauth/authenticate'
+    _OAUTH_REQUEST_TOKEN_URL = 'https://api.twitter.com/oauth/request_token'
+    _OAUTH_ACCESS_TOKEN_URL = 'https://api.twitter.com/oauth/access_token'
+    _OAUTH_AUTHORIZE_URL = 'https://api.twitter.com/oauth/authorize'
+    _OAUTH_AUTHENTICATE_URL = 'https://api.twitter.com/oauth/authenticate'
 
     def authenticate_redirect(self):
         """Just like authorize_redirect(), but auto-redirects if authorized.
@@ -129,7 +129,7 @@ class TwitterMixin(OAuthMixin):
 
         """
         # Add the OAuth resource request signature if we have credentials
-        url = 'http://api.twitter.com/1' + path + '.json'
+        url = 'http://api.twitter.com/1.1' + path + '.json'
         if access_token:
             all_args = {}
             all_args.update(args)
